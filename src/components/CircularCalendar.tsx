@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isToday, addMonths, subMonths } from "date-fns";
 import { hasIncidents } from "@/data/mockData";
 import { cn } from "@/lib/utils";
@@ -51,30 +50,30 @@ const CircularCalendar = () => {
       </div>
       
       {/* Circular calendar */}
-      <div className="relative w-[500px] h-[500px] mx-auto">
+      <div className="relative w-[600px] h-[600px] mx-auto mb-8">
         {/* Red circular background */}
         <div className="absolute inset-0 rounded-full bg-red-600"></div>
         
         {/* Inner circle with text */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[180px] h-[180px] rounded-full bg-white flex flex-col items-center justify-center">
-            <p className="text-2xl font-bold text-black">ZERO</p>
-            <p className="text-3xl font-bold text-red-600">HARM</p>
+          <div className="w-[220px] h-[220px] rounded-full bg-white flex flex-col items-center justify-center">
+            <p className="text-3xl font-bold text-black">ZERO</p>
+            <p className="text-4xl font-bold text-red-600">HARM</p>
           </div>
         </div>
 
         {/* Safety texts */}
         <div className="absolute inset-0">
-          <div className="absolute top-[140px] left-[80px] text-white font-semibold transform -rotate-45">THINK SAFE</div>
-          <div className="absolute top-[140px] right-[80px] text-white font-semibold transform rotate-45">WORK SAFE</div>
-          <div className="absolute bottom-[140px] right-[80px] text-white font-semibold transform rotate-[135deg]">HOME SAFE</div>
+          <div className="absolute top-[180px] left-[110px] text-white font-bold transform -rotate-45">THINK SAFE</div>
+          <div className="absolute top-[180px] right-[110px] text-white font-bold transform rotate-45">WORK SAFE</div>
+          <div className="absolute bottom-[180px] right-[110px] text-white font-bold transform rotate-[135deg]">HOME SAFE</div>
         </div>
         
         {/* Position the days in a circle */}
         {daysInMonth.map((day, index) => {
           const totalDays = daysInMonth.length;
           const angle = (index * (360 / totalDays)) * (Math.PI / 180);
-          const radius = 195; // Increased radius for the circle
+          const radius = 240; // Increased radius for the circle
           const x = radius * Math.cos(angle);
           const y = radius * Math.sin(angle);
           
@@ -98,6 +97,21 @@ const CircularCalendar = () => {
             </div>
           );
         })}
+      </div>
+      
+      {/* KPI Indicator */}
+      <div className="text-center mt-4">
+        <h2 className="text-2xl font-bold mb-4">KPI: NO INJURIES</h2>
+        <div className="flex justify-center gap-20 items-center">
+          <div className="text-center">
+            <div className="w-16 h-16 rounded-full bg-green-500 mx-auto mb-2"></div>
+            <p className="font-bold text-lg">ON TARGET</p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 rounded-full bg-red-600 mx-auto mb-2"></div>
+            <p className="font-bold text-lg">OFF TARGET</p>
+          </div>
+        </div>
       </div>
     </div>
   );
