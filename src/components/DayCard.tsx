@@ -17,10 +17,10 @@ const DayCard: React.FC<DayCardProps> = ({ date, displayDate, dayOfWeek, fullDis
   return (
     <Link to={hasIncidentsForDay ? `/incidents/${date}` : "#"} 
           className={cn(
-            "block rounded-lg border p-4 transition-all",
+            "block rounded-full border-2 p-3 transition-all flex items-center justify-center",
             hasIncidentsForDay 
-              ? "bg-incident/10 border-incident hover:bg-incident/20 cursor-pointer" 
-              : "bg-safe/10 border-safe hover:bg-safe/20",
+              ? "bg-white border-red-600 hover:bg-red-50 cursor-pointer" 
+              : "bg-white border-green-500 hover:bg-green-50",
             !hasIncidentsForDay && "pointer-events-none" // Disable click if no incidents
           )}
     >
@@ -29,8 +29,8 @@ const DayCard: React.FC<DayCardProps> = ({ date, displayDate, dayOfWeek, fullDis
         <span className="text-lg font-semibold">{displayDate}</span>
         <div 
           className={cn(
-            "mt-2 w-3 h-3 rounded-full",
-            hasIncidentsForDay ? "bg-incident" : "bg-safe"
+            "mt-1 w-2 h-2 rounded-full",
+            hasIncidentsForDay ? "bg-red-600" : "bg-green-500"
           )} 
         />
       </div>
