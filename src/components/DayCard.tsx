@@ -24,23 +24,22 @@ const DayCard: React.FC<DayCardProps> = ({
   return (
     <Link to={hasIncidentsForDay ? `/incidents/${date}` : "#"} 
           className={cn(
-            "block rounded-full border-2 p-2 transition-all flex items-center justify-center",
+            "block rounded-full transition-all flex items-center justify-center",
             hasIncidentsForDay 
-              ? "bg-white border-red-600 hover:bg-red-50 cursor-pointer" 
-              : "bg-white border-green-500 hover:bg-green-50",
-            isToday && "ring-2 ring-offset-2 ring-blue-500",
+              ? "bg-red-600 hover:bg-red-700 cursor-pointer" 
+              : "bg-green-500 hover:bg-green-600",
+            isToday && "ring-4 ring-offset-2 ring-blue-500",
             !hasIncidentsForDay && "pointer-events-none" // Disable click if no incidents
           )}
-          style={{ width: '36px', height: '36px' }}
+          style={{ width: '50px', height: '50px' }}
     >
       <div className="flex flex-col items-center justify-center">
-        <span className="text-xs text-gray-700 font-medium">{displayDate}</span>
-        <div 
-          className={cn(
-            "mt-0.5 w-1.5 h-1.5 rounded-full",
-            hasIncidentsForDay ? "bg-red-600" : "bg-green-500"
-          )} 
-        />
+        <span className={cn(
+          "text-md font-semibold",
+          hasIncidentsForDay ? "text-white" : "text-white"
+        )}>
+          {displayDate}
+        </span>
       </div>
     </Link>
   );

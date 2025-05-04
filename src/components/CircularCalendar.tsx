@@ -51,13 +51,13 @@ const CircularCalendar = () => {
       </div>
       
       {/* Circular calendar */}
-      <div className="relative w-[400px] h-[400px] mx-auto">
+      <div className="relative w-[500px] h-[500px] mx-auto">
         {/* Red circular background */}
         <div className="absolute inset-0 rounded-full bg-red-600"></div>
         
         {/* Inner circle with text */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[160px] h-[160px] rounded-full bg-white flex flex-col items-center justify-center">
+          <div className="w-[180px] h-[180px] rounded-full bg-white flex flex-col items-center justify-center">
             <p className="text-2xl font-bold text-black">ZERO</p>
             <p className="text-3xl font-bold text-red-600">HARM</p>
           </div>
@@ -65,16 +65,16 @@ const CircularCalendar = () => {
 
         {/* Safety texts */}
         <div className="absolute inset-0">
-          <div className="absolute top-[120px] left-[60px] text-white font-semibold transform -rotate-45">THINK SAFE</div>
-          <div className="absolute top-[120px] right-[60px] text-white font-semibold transform rotate-45">WORK SAFE</div>
-          <div className="absolute bottom-[120px] right-[60px] text-white font-semibold transform rotate-[135deg]">HOME SAFE</div>
+          <div className="absolute top-[140px] left-[80px] text-white font-semibold transform -rotate-45">THINK SAFE</div>
+          <div className="absolute top-[140px] right-[80px] text-white font-semibold transform rotate-45">WORK SAFE</div>
+          <div className="absolute bottom-[140px] right-[80px] text-white font-semibold transform rotate-[135deg]">HOME SAFE</div>
         </div>
         
         {/* Position the days in a circle */}
         {daysInMonth.map((day, index) => {
           const totalDays = daysInMonth.length;
           const angle = (index * (360 / totalDays)) * (Math.PI / 180);
-          const radius = 160; // Radius of the circle
+          const radius = 195; // Increased radius for the circle
           const x = radius * Math.cos(angle);
           const y = radius * Math.sin(angle);
           

@@ -31,15 +31,15 @@ const Dashboard = () => {
             <div className="bg-white p-6 rounded-lg shadow-md mb-6">
               <h2 className="text-xl font-bold mb-4">Color Indicators</h2>
               <div className="flex items-center mb-4">
-                <div className="w-6 h-6 rounded-full bg-green-500 mr-4"></div>
+                <div className="w-10 h-10 rounded-full bg-green-500 mr-4"></div>
                 <p>Days with no safety incidents reported</p>
               </div>
               <div className="flex items-center mb-4">
-                <div className="w-6 h-6 rounded-full bg-red-600 mr-4"></div>
+                <div className="w-10 h-10 rounded-full bg-red-600 mr-4"></div>
                 <p>Days with safety incidents reported</p>
               </div>
               <div className="flex items-center">
-                <div className="w-6 h-6 rounded-full border-2 border-blue-500 ring-2 ring-offset-2 ring-blue-500 mr-4"></div>
+                <div className="w-10 h-10 rounded-full bg-white ring-4 ring-offset-2 ring-blue-500 mr-4"></div>
                 <p>Today's date</p>
               </div>
             </div>
@@ -50,7 +50,7 @@ const Dashboard = () => {
             <div className="bg-white p-6 rounded-lg shadow-md mt-6">
               <QRCodeDisplay 
                 value={qrCodeValue}
-                size={150}
+                size={180}
                 title="Report Safety Incident"
                 description="Scan this QR code to report a safety incident"
               />

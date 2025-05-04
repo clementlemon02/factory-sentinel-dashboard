@@ -13,8 +13,8 @@ const SafetySummary = () => {
   const resolvedIncidents = mockIncidents.filter(incident => incident.status === "resolved").length;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-      <Card>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <Card className="w-full">
         <CardHeader className="pb-2">
           <CardDescription>Safety Score</CardDescription>
           <CardTitle className="text-2xl">{safetyPercentage}%</CardTitle>
@@ -24,7 +24,7 @@ const SafetySummary = () => {
         </CardContent>
       </Card>
       
-      <Card>
+      <Card className="w-full">
         <CardHeader className="pb-2">
           <CardDescription>Total Incidents</CardDescription>
           <CardTitle className="text-2xl">{mockIncidents.length}</CardTitle>
@@ -34,18 +34,20 @@ const SafetySummary = () => {
         </CardContent>
       </Card>
       
-      <Card>
+      <Card className="w-full">
         <CardHeader className="pb-2">
           <CardDescription>Pending Resolution</CardDescription>
           <CardTitle className="text-2xl">{pendingIncidents}</CardTitle>
         </CardHeader>
-        <CardContent className="flex gap-2">
-          <span className="text-sm px-2 py-1 bg-amber-100 text-amber-800 rounded-full">{assignedIncidents} Assigned</span>
-          <span className="text-sm px-2 py-1 bg-green-100 text-green-800 rounded-full">{resolvedIncidents} Resolved</span>
+        <CardContent>
+          <div className="flex gap-2 flex-wrap">
+            <span className="text-sm px-2 py-1 bg-amber-100 text-amber-800 rounded-full">{assignedIncidents} Assigned</span>
+            <span className="text-sm px-2 py-1 bg-green-100 text-green-800 rounded-full">{resolvedIncidents} Resolved</span>
+          </div>
         </CardContent>
       </Card>
       
-      <Card>
+      <Card className="w-full">
         <CardHeader className="pb-2">
           <CardDescription>Last Incident</CardDescription>
           <CardTitle className="text-2xl">
